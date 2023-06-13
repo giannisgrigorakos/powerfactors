@@ -3,9 +3,10 @@ package server
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/mux"
 	"net/http"
 	"time"
+
+	"github.com/gorilla/mux"
 )
 
 const (
@@ -142,36 +143,35 @@ func (s *Server) FindMatchingTimestamps(w http.ResponseWriter, r *http.Request) 
 	encoder.Encode(&SearchResponse{
 		Timestamps: result,
 	})
-	return
 }
 
 func validateRequestAndFetchTimestamps(req SearchRequest) (time.Time, time.Time, error) {
 	// Check if fields are empty and if they are that means they are missing from the request.
 	if req.Period == "" {
-		return time.Time{}, time.Time{}, fmt.Errorf("Period field `period` is missing from the request: %v", req)
+		return time.Time{}, time.Time{}, fmt.Errorf("period field `period` is missing from the request: %v", req)
 	}
 	if req.Timezone == "" {
-		return time.Time{}, time.Time{}, fmt.Errorf("Timezone field `tz` is missing from the request: %v", req)
+		return time.Time{}, time.Time{}, fmt.Errorf("timezone field `tz` is missing from the request: %v", req)
 	}
 	if req.FirstTimestamp == "" {
-		return time.Time{}, time.Time{}, fmt.Errorf("First timestamp field `t1` is missing from the request: %v", req)
+		return time.Time{}, time.Time{}, fmt.Errorf("first timestamp field `t1` is missing from the request: %v", req)
 	}
 	if req.SecondTimestamp == "" {
-		return time.Time{}, time.Time{}, fmt.Errorf("Second timestamp field `t2` is missing from the request: %v", req)
+		return time.Time{}, time.Time{}, fmt.Errorf("second timestamp field `t2` is missing from the request: %v", req)
 	}
 
 	// Validate that the specific period is supported by the system.
 	if _, ok := supportedPeriods[req.Period]; !ok {
-		return time.Time{}, time.Time{}, fmt.Errorf("Unsupported period: %v", req.Period)
+		return time.Time{}, time.Time{}, fmt.Errorf("unsupported period: %v", req.Period)
 	}
 
 	t1, err := time.Parse(iso8601Format, req.FirstTimestamp)
 	if err != nil {
-		return time.Time{}, time.Time{}, fmt.Errorf("Could not parse t1: %v as it's not in 20060102T150405Z (ISO8601) format", req.FirstTimestamp)
+		return time.Time{}, time.Time{}, fmt.Errorf("could not parse t1: %v as it's not in 20060102T150405Z (ISO8601) format", req.FirstTimestamp)
 	}
 	t2, err := time.Parse(iso8601Format, req.SecondTimestamp)
 	if err != nil {
-		return time.Time{}, time.Time{}, fmt.Errorf("Could not parse t2: %v as it's not in 20060102T150405Z (ISO8601) format", req.SecondTimestamp)
+		return time.Time{}, time.Time{}, fmt.Errorf("could not parse t2: %v as it's not in 20060102T150405Z (ISO8601) format", req.SecondTimestamp)
 	}
 	if t1.After(t2) {
 		return time.Time{}, time.Time{}, fmt.Errorf("t1: %v should be before t2: %v", req.FirstTimestamp, req.SecondTimestamp)

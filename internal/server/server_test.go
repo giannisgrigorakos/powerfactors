@@ -3,11 +3,12 @@ package server_test
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/gorilla/mux"
 	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/gorilla/mux"
 
 	"powerFactors/internal/server"
 )
@@ -45,7 +46,7 @@ func TestFindMatchingTimestampsInvalidSearchRequest(t *testing.T) {
 				FirstTimestamp:  "20180214T204603Z",
 				SecondTimestamp: "20180214T204703Z",
 			},
-			expectedErr: "{\"status\":\"error\",\"desc\":\"Period field `period` is missing from the request: { Europe/Athens 20180214T204603Z 20180214T204703Z}\"}\n",
+			expectedErr: "{\"status\":\"error\",\"desc\":\"period field `period` is missing from the request: { Europe/Athens 20180214T204603Z 20180214T204703Z}\"}\n",
 		},
 		"Missing Timezone": {
 			wrongRequest: server.SearchRequest{
@@ -53,7 +54,7 @@ func TestFindMatchingTimestampsInvalidSearchRequest(t *testing.T) {
 				FirstTimestamp:  "20180214T204603Z",
 				SecondTimestamp: "20180214T204703Z",
 			},
-			expectedErr: "{\"status\":\"error\",\"desc\":\"Timezone field `tz` is missing from the request: {1y  20180214T204603Z 20180214T204703Z}\"}\n",
+			expectedErr: "{\"status\":\"error\",\"desc\":\"timezone field `tz` is missing from the request: {1y  20180214T204603Z 20180214T204703Z}\"}\n",
 		},
 		"Missing First Timestamp": {
 			wrongRequest: server.SearchRequest{
@@ -61,7 +62,7 @@ func TestFindMatchingTimestampsInvalidSearchRequest(t *testing.T) {
 				Timezone:        "Europe/Athens",
 				SecondTimestamp: "20180214T204703Z",
 			},
-			expectedErr: "{\"status\":\"error\",\"desc\":\"First timestamp field `t1` is missing from the request: {1y Europe/Athens  20180214T204703Z}\"}\n",
+			expectedErr: "{\"status\":\"error\",\"desc\":\"first timestamp field `t1` is missing from the request: {1y Europe/Athens  20180214T204703Z}\"}\n",
 		},
 		"Missing Second Timestamp": {
 			wrongRequest: server.SearchRequest{
@@ -69,7 +70,7 @@ func TestFindMatchingTimestampsInvalidSearchRequest(t *testing.T) {
 				Timezone:       "Europe/Athens",
 				FirstTimestamp: "20180214T204603Z",
 			},
-			expectedErr: "{\"status\":\"error\",\"desc\":\"Second timestamp field `t2` is missing from the request: {1y Europe/Athens 20180214T204603Z }\"}\n",
+			expectedErr: "{\"status\":\"error\",\"desc\":\"second timestamp field `t2` is missing from the request: {1y Europe/Athens 20180214T204603Z }\"}\n",
 		},
 		"Unsupported Period": {
 			wrongRequest: server.SearchRequest{
@@ -78,7 +79,7 @@ func TestFindMatchingTimestampsInvalidSearchRequest(t *testing.T) {
 				FirstTimestamp:  "20180214T204603Z",
 				SecondTimestamp: "20180214T204703Z",
 			},
-			expectedErr: "{\"status\":\"error\",\"desc\":\"Unsupported period: 1ya\"}\n",
+			expectedErr: "{\"status\":\"error\",\"desc\":\"unsupported period: 1ya\"}\n",
 		},
 		"First timestamp wrong format": {
 			wrongRequest: server.SearchRequest{
@@ -87,7 +88,7 @@ func TestFindMatchingTimestampsInvalidSearchRequest(t *testing.T) {
 				FirstTimestamp:  "20180214T20460asd",
 				SecondTimestamp: "20180214T204703Z",
 			},
-			expectedErr: "{\"status\":\"error\",\"desc\":\"Could not parse t1: 20180214T20460asd as it's not in 20060102T150405Z (ISO8601) format\"}\n",
+			expectedErr: "{\"status\":\"error\",\"desc\":\"could not parse t1: 20180214T20460asd as it's not in 20060102T150405Z (ISO8601) format\"}\n",
 		},
 		"Second timestamp wrong format": {
 			wrongRequest: server.SearchRequest{
@@ -96,7 +97,7 @@ func TestFindMatchingTimestampsInvalidSearchRequest(t *testing.T) {
 				FirstTimestamp:  "20180214T204603Z",
 				SecondTimestamp: "20180214T204asd",
 			},
-			expectedErr: "{\"status\":\"error\",\"desc\":\"Could not parse t2: 20180214T204asd as it's not in 20060102T150405Z (ISO8601) format\"}\n",
+			expectedErr: "{\"status\":\"error\",\"desc\":\"could not parse t2: 20180214T204asd as it's not in 20060102T150405Z (ISO8601) format\"}\n",
 		},
 		"First timestamp is after second timestamp": {
 			wrongRequest: server.SearchRequest{
