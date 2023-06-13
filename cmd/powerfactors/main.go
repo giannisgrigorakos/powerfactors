@@ -13,7 +13,6 @@ func main() {
 	// TODO:
 	// check edge cases
 	// docker + docker-compose
-	// tests
 	// extensible
 	// README
 	// makefile
