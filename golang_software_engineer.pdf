@@ -1,0 +1,499 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 5 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+>>
+endobj
+5 0 obj
+<<
+/BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F4 /Subtype /Type1 /Type /Font
+>>
+endobj
+6 0 obj
+<<
+/Contents 16 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 15 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+7 0 obj
+<<
+/Contents 17 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 15 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+8 0 obj
+<<
+/Contents 18 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 15 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+9 0 obj
+<<
+/Outlines 11 0 R /PageLabels 19 0 R /PageMode /UseNone /Pages 15 0 R /Type /Catalog
+>>
+endobj
+10 0 obj
+<<
+/Author () /CreationDate (D:20210802184041-02'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20210802184041-02'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+  /Subject (\(unspecified\)) /Title (Technical assignment) /Trapped /False
+>>
+endobj
+11 0 obj
+<<
+/Count 3 /First 12 0 R /Last 14 0 R /Type /Outlines
+>>
+endobj
+12 0 obj
+<<
+/Dest [ 6 0 R /XYZ 62.69291 699.0236 0 ] /Next 13 0 R /Parent 11 0 R /Title (Description)
+>>
+endobj
+13 0 obj
+<<
+/Dest [ 6 0 R /XYZ 62.69291 438.0236 0 ] /Next 14 0 R /Parent 11 0 R /Prev 12 0 R /Title (Examples)
+>>
+endobj
+14 0 obj
+<<
+/Dest [ 8 0 R /XYZ 62.69291 661.5441 0 ] /Parent 11 0 R /Prev 13 0 R /Title (Deliverable)
+>>
+endobj
+15 0 obj
+<<
+/Count 3 /Kids [ 6 0 R 7 0 R 8 0 R ] /Type /Pages
+>>
+endobj
+16 0 obj
+<<
+/Length 4704
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 741.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4 Tm /F2 20 Tf 24 TL 130.4649 0 Td (Technical assignment) Tj T* -130.4649 0 Td ET
+Q
+Q
+q
+1 0 0 1 62.69291 711.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 3 Tm /F2 15 Tf 18 TL 142.8374 0 Td (Golang software engineer) Tj T* -142.8374 0 Td ET
+Q
+Q
+q
+1 0 0 1 62.69291 678.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Description) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 648.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.196235 Tw (The goal of this assignment is the implementation of a JSON/HTTP service, in golang, that returns the) Tj T* 0 Tw (matching timestamps of a periodic task.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 630.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (A periodic task is described by the following properties:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 624.0236 cm
+Q
+q
+1 0 0 1 62.69291 624.0236 cm
+Q
+q
+1 0 0 1 62.69291 612.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Period \(every hour, every day, ...\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 606.0236 cm
+Q
+q
+1 0 0 1 62.69291 594.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Invocation point \(where inside the period should be invoked\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 588.0236 cm
+Q
+q
+1 0 0 1 62.69291 576.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Timezone \(days/months/years are timezone-depended\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 576.0236 cm
+Q
+q
+1 0 0 1 62.69291 534.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL .637045 Tw (The service should return all matching timestamps of a periodic task \(ptlist\) between 2 points in time \(t1,) Tj T* 0 Tw 4.428221 Tw (t2\). t1, t2 and the entries of ptlist are in UTC with seconds accuracy, in the following form:) Tj T* 0 Tw (20060102T150405Z) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 492.0236 cm
+q
+BT 1 0 0 1 0 26 Tm .319431 Tw 12 TL /F1 10 Tf 0 0 0 rg (The supported periods should be: ) Tj /F3 10 Tf (1h) Tj /F1 10 Tf (, ) Tj /F3 10 Tf (1d) Tj /F1 10 Tf (, ) Tj /F3 10 Tf (1mo) Tj /F1 10 Tf (, ) Tj /F3 10 Tf (1y) Tj /F1 10 Tf (. The invocation timestamp should be at the start of the) Tj T* 0 Tw 2.155366 Tw (period \(e.g. for ) Tj /F3 10 Tf (1h) Tj /F1 10 Tf ( period a matching timestamp is considered the 20210729T010000Z\). The service) Tj T* 0 Tw (should accept as command-line argument the listen addr/port.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 450.0236 cm
+q
+BT 1 0 0 1 0 26 Tm 2.10881 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, HTTP status 200 OK and a ) Tj /F3 10 Tf (JSON array) Tj /F1 10 Tf ( with all matching timestamps, in UTC, for the) Tj T* 0 Tw 1.237318 Tw (requested period should be returned. On failure, HTTP status 400 and a ) Tj /F3 10 Tf (JSON object) Tj /F1 10 Tf ( with appropriate) Tj T* 0 Tw (fields should be returned.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 417.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Examples) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 399.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Here are some examples of successful requests/responses:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 88.95163 cm
+q
+q
+.96447 0 0 .96447 0 0 cm
+q
+1 0 0 1 6.6 6.843137 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 480 312 re B*
+Q
+q
+BT 1 0 0 1 0 290 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET /ptlist?period=1h) Tj (&) Tj (tz=Europe/Athens) Tj (&) Tj (t1=20210714T204603Z) Tj (&) Tj (t2=20210715T123456Z) Tj T* (  [) Tj T* (        "20210714T210000Z",) Tj T* (        "20210714T220000Z",) Tj T* (        "20210714T230000Z",) Tj T* (        "20210715T000000Z",) Tj T* (        "20210715T010000Z",) Tj T* (        "20210715T020000Z",) Tj T* (        "20210715T030000Z",) Tj T* (        "20210715T040000Z",) Tj T* (        "20210715T050000Z",) Tj T* (        "20210715T060000Z",) Tj T* (        "20210715T070000Z",) Tj T* (        "20210715T080000Z",) Tj T* (        "20210715T090000Z",) Tj T* (        "20210715T100000Z",) Tj T* (        "20210715T110000Z",) Tj T* (        "20210715T120000Z") Tj T* (  ]) Tj T*  T*  T* (GET /ptlist?period=1d) Tj (&) Tj (tz=Europe/Athens) Tj (&) Tj (t1=20211010T204603Z) Tj (&) Tj (t2=20211115T123456Z) Tj T* (  [) Tj T* (        "20211010T210000Z",) Tj T* (        "20211011T210000Z",) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+17 0 obj
+<<
+/Length 2249
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 92.59517 cm
+q
+q
+.96447 0 0 .96447 0 0 cm
+q
+1 0 0 1 6.6 6.843137 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 486 696 re B*
+Q
+q
+BT 1 0 0 1 0 674 Tm 12 TL /F4 10 Tf 0 0 0 rg (        "20211012T210000Z",) Tj T* (        "20211013T210000Z",) Tj T* (        "20211014T210000Z",) Tj T* (        "20211015T210000Z",) Tj T* (        "20211016T210000Z",) Tj T* (        "20211017T210000Z",) Tj T* (        "20211018T210000Z",) Tj T* (        "20211019T210000Z",) Tj T* (        "20211020T210000Z",) Tj T* (        "20211021T210000Z",) Tj T* (        "20211022T210000Z",) Tj T* (        "20211023T210000Z",) Tj T* (        "20211024T210000Z",) Tj T* (        "20211025T210000Z",) Tj T* (        "20211026T210000Z",) Tj T* (        "20211027T210000Z",) Tj T* (        "20211028T210000Z",) Tj T* (        "20211029T210000Z",) Tj T* (        "20211030T210000Z",) Tj T* (        "20211031T220000Z",) Tj T* (        "20211101T220000Z",) Tj T* (        "20211102T220000Z",) Tj T* (        "20211103T220000Z",) Tj T* (        "20211104T220000Z",) Tj T* (        "20211105T220000Z",) Tj T* (        "20211106T220000Z",) Tj T* (        "20211107T220000Z",) Tj T* (        "20211108T220000Z",) Tj T* (        "20211109T220000Z",) Tj T* (        "20211110T220000Z",) Tj T* (        "20211111T220000Z",) Tj T* (        "20211112T220000Z",) Tj T* (        "20211113T220000Z",) Tj T* (        "20211114T220000Z") Tj T* (  ]) Tj T*  T*  T* (GET /ptlist?period=1mo) Tj (&) Tj (tz=Europe/Athens) Tj (&) Tj (t1=20210214T204603Z) Tj (&) Tj (t2=20211115T123456Z) Tj T* (  [) Tj T* (        "20210228T220000Z",) Tj T* (        "20210331T210000Z",) Tj T* (        "20210430T210000Z",) Tj T* (        "20210531T210000Z",) Tj T* (        "20210630T210000Z",) Tj T* (        "20210731T210000Z",) Tj T* (        "20210831T210000Z",) Tj T* (        "20210930T210000Z",) Tj T* (        "20211031T220000Z") Tj T* (  ]) Tj T*  T*  T* (GET /ptlist?period=1y) Tj (&) Tj (tz=Europe/Athens) Tj (&) Tj (t1=20180214T204603Z) Tj (&) Tj (t2=20211115T123456Z) Tj T* (  [) Tj T* (        "20181231T220000Z",) Tj T* (        "20191231T220000Z",) Tj T* (        "20201231T220000Z") Tj T* (  ]) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+18 0 obj
+<<
+/Length 2100
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 753.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (An example of unsuccessful request/response:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 673.5441 cm
+q
+q
+.976496 0 0 .976496 0 0 cm
+q
+1 0 0 1 6.6 6.758862 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 480 72 re B*
+Q
+q
+BT 1 0 0 1 0 50 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET /ptlist?period=1w) Tj (&) Tj (tz=Europe/Athens) Tj (&) Tj (t1=20180214T204603Z) Tj (&) Tj (t2=20211115T123456Z) Tj T* (    {) Tj T* (      "status": "error",) Tj T* (      "desc": "Unsupported period") Tj T* (    }) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 640.5441 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Deliverable) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 610.5441 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .297126 Tw (Mandatory: Code with minimal instructions to build/run should be committed in a public repository \(github,) Tj T* 0 Tw (bitbucket, ...\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 592.5441 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Optional \(nice to have\):) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 586.5441 cm
+Q
+q
+1 0 0 1 62.69291 586.5441 cm
+Q
+q
+1 0 0 1 62.69291 574.5441 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Extensible \(easy to support new periods\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 568.5441 cm
+Q
+q
+1 0 0 1 62.69291 556.5441 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Run in docker) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 550.5441 cm
+Q
+q
+1 0 0 1 62.69291 538.5441 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Unit-test) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 538.5441 cm
+Q
+ 
+endstream
+endobj
+19 0 obj
+<<
+/Nums [ 0 20 0 R 1 21 0 R 2 22 0 R ]
+>>
+endobj
+20 0 obj
+<<
+/S /D /St 1
+>>
+endobj
+21 0 obj
+<<
+/S /D /St 2
+>>
+endobj
+22 0 obj
+<<
+/S /D /St 3
+>>
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000000073 00000 n 
+0000000134 00000 n 
+0000000241 00000 n 
+0000000353 00000 n 
+0000000468 00000 n 
+0000000573 00000 n 
+0000000778 00000 n 
+0000000983 00000 n 
+0000001188 00000 n 
+0000001293 00000 n 
+0000001571 00000 n 
+0000001645 00000 n 
+0000001757 00000 n 
+0000001879 00000 n 
+0000001991 00000 n 
+0000002063 00000 n 
+0000006819 00000 n 
+0000009120 00000 n 
+0000011272 00000 n 
+0000011331 00000 n 
+0000011365 00000 n 
+0000011399 00000 n 
+trailer
+<<
+/ID 
+[<3bd354153ef0c9d2affc9b6a92199e90><3bd354153ef0c9d2affc9b6a92199e90>]
+% ReportLab generated PDF document -- digest (http://www.reportlab.com)
+
+/Info 10 0 R
+/Root 9 0 R
+/Size 23
+>>
+startxref
+11433
+%%EOF
