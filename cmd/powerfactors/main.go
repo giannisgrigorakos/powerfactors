@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	// We use as default the 0.0.0.0 address to bypass network isolation of docker.
+	// We use as default the 0.0.0.0 address to bypass the network isolation of docker.
 	ip := flag.String("address", "0.0.0.0", "The IP address that this server will use.")
 	port := flag.String("port", "3000", "The port that this server will listen to.")
 

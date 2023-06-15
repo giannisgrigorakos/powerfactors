@@ -7,7 +7,7 @@ This is the Powerfactors technical challenge.
 
 # How to run the program
 You have to pass as arguments in the below command the desired address and port that this program will run.
-If not, then the default values of `127.0.0.1` and `3000` will take place respectively.
+If not, then the default values of `0.0.0.0` (instead of localhost we use this address to bypass the network isolation of docker) and `3000` will take place respectively.
 ```
 $ go run cmd/powerfactors/main.go -address="desired_address" -port="desired_port"
 ```
