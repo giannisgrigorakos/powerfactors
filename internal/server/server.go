@@ -3,6 +3,7 @@ package server
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"time"
 
@@ -60,20 +61,17 @@ func NewServer() *Server {
 }
 
 // FindMatchingTimestamps handles the HTTP request to find matching timestamps.
-// It validates the request, calculates the timestamps based on the provided parameters,
-// and returns the result in the HTTP response.
-//
-// Method:   POST
-// Endpoint: /matching-timestamps
+// It decodes the request JSON, validates the request data, and calculates the timestamps.
+// The calculated timestamps are encoded in the response JSON and sent back to the client.
 //
 // Request Body:
 //
 //	The request body should contain a JSON object with the following structure:
 //	{
-//	    "t1": "yyyy-MM-ddTHH:mm:ssZ",
-//	    "t2": "yyyy-MM-ddTHH:mm:ssZ",
+//	    "t1": "yyyyMMddTHHmmssZ",
+//	    "t2": "yyyyMMddTHHmmssZ",
 //	    "period": "1h",
-//	    "timezone": "UTC"
+//	    "timezone": "Europe/Athens"
 //	}
 //
 // Response:
@@ -87,79 +85,91 @@ func NewServer() *Server {
 //	    "status": "error",
 //	    "description": "Error message"
 //	}
+//
+// Notes:
+//   - This function assumes that the request body contains valid JSON data in the expected format.
+//   - If any errors occur during the processing of the request, an appropriate error response is sent.
+//   - If encoding the response JSON fails, a 500 Internal Server Error is returned.
 func (s *Server) FindMatchingTimestamps(w http.ResponseWriter, r *http.Request) {
 	var req SearchRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
 	defer r.Body.Close()
 	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		encoder := json.NewEncoder(w)
-		encoder.Encode(&SearchResponse{
-			Status:      "error",
-			Description: "Bad Request:" + err.Error(),
-		})
+		handleError(w, "Bad Request/ Empty Request:"+err.Error(), "Decode Request: Unable to encode response: %v")
 		return
 	}
 
-	t1, t2, period, timezone, err := validateRequest(req)
+	reqData, err := validateRequest(req)
 	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		encoder := json.NewEncoder(w)
-		encoder.Encode(&SearchResponse{
-			Status:      "error",
-			Description: err.Error(),
-		})
+		handleError(w, err.Error(), "validateRequest: Unable to encode response: %v")
 		return
-
 	}
 
-	result, err := timestamp.CalculateTimestamps(t1, t2, period, timezone)
+	result, err := timestamp.CalculateTimestamps(reqData)
 	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		encoder := json.NewEncoder(w)
-		encoder.Encode(&SearchResponse{
-			Status:      "error",
-			Description: err.Error(),
-		})
+		handleError(w, err.Error(), "CalculateTimestamps: Unable to encode response: %v")
 		return
 	}
 
 	encoder := json.NewEncoder(w)
-	encoder.Encode(&SearchResponse{
+	err = encoder.Encode(&SearchResponse{
 		Timestamps: result,
 	})
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		log.Printf("Successful Response: Unable to encode response: %v", err)
+	}
 }
 
-func validateRequest(req SearchRequest) (time.Time, time.Time, string, string, error) {
+func handleError(w http.ResponseWriter, description, internalErrorLog string) {
+	w.WriteHeader(http.StatusBadRequest)
+	encoder := json.NewEncoder(w)
+	err := encoder.Encode(&SearchResponse{
+		Status:      "error",
+		Description: description,
+	})
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		log.Printf(internalErrorLog, err)
+	}
+}
+
+func validateRequest(req SearchRequest) (timestamp.RequestData, error) {
 	// Check if fields are empty and if they are that means they are missing from the request.
 	if req.Period == "" {
-		return time.Time{}, time.Time{}, "", "", fmt.Errorf("period field `period` is missing from the request: %v", req)
+		return timestamp.RequestData{}, fmt.Errorf("period field `period` is missing from the request: %v", req)
 	}
 	if req.Timezone == "" {
-		return time.Time{}, time.Time{}, "", "", fmt.Errorf("timezone field `tz` is missing from the request: %v", req)
+		return timestamp.RequestData{}, fmt.Errorf("timezone field `tz` is missing from the request: %v", req)
 	}
 	if req.FirstTimestamp == "" {
-		return time.Time{}, time.Time{}, "", "", fmt.Errorf("first timestamp field `t1` is missing from the request: %v", req)
+		return timestamp.RequestData{}, fmt.Errorf("first timestamp field `t1` is missing from the request: %v", req)
 	}
 	if req.SecondTimestamp == "" {
-		return time.Time{}, time.Time{}, "", "", fmt.Errorf("second timestamp field `t2` is missing from the request: %v", req)
+		return timestamp.RequestData{}, fmt.Errorf("second timestamp field `t2` is missing from the request: %v", req)
 	}
 
 	// Validate that the specific period is supported.
 	if _, ok := supportedPeriods[req.Period]; !ok {
-		return time.Time{}, time.Time{}, "", "", fmt.Errorf("unsupported period: %v", req.Period)
+		return timestamp.RequestData{}, fmt.Errorf("unsupported period: %v", req.Period)
 	}
 
 	t1, err := time.Parse(timestamp.ISO8601Format, req.FirstTimestamp)
 	if err != nil {
-		return time.Time{}, time.Time{}, "", "", fmt.Errorf("could not parse t1: %v as it's not in 20060102T150405Z (ISO8601) format", req.FirstTimestamp)
+		return timestamp.RequestData{}, fmt.Errorf("could not parse t1: %v as it's not in 20060102T150405Z (ISO8601) format", req.FirstTimestamp)
 	}
 	t2, err := time.Parse(timestamp.ISO8601Format, req.SecondTimestamp)
 	if err != nil {
-		return time.Time{}, time.Time{}, "", "", fmt.Errorf("could not parse t2: %v as it's not in 20060102T150405Z (ISO8601) format", req.SecondTimestamp)
+		return timestamp.RequestData{}, fmt.Errorf("could not parse t2: %v as it's not in 20060102T150405Z (ISO8601) format", req.SecondTimestamp)
 	}
 	if t1.After(t2) {
-		return time.Time{}, time.Time{}, "", "", fmt.Errorf("t1: %v should be before t2: %v", req.FirstTimestamp, req.SecondTimestamp)
+		return timestamp.RequestData{}, fmt.Errorf("t1: %v should be before t2: %v", req.FirstTimestamp, req.SecondTimestamp)
 	}
-	return t1, t2, req.Period, req.Timezone, nil
+	reqData := timestamp.RequestData{
+		Period:          req.Period,
+		Timezone:        req.Timezone,
+		FirstTimestamp:  t1,
+		SecondTimestamp: t2,
+	}
+	return reqData, nil
 }

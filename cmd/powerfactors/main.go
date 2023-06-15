@@ -10,16 +10,8 @@ import (
 )
 
 func main() {
-
-	// TODO:
-	// check edge cases sta test
-	// docker + docker-compose
-	// README
-	// makefile
-	// Documentation
-
-	// I might want to have 0.0.0.0 because of docker
-	ip := flag.String("address", "127.0.0.1", "The IP address that this server will use.")
+	// We use as default the 0.0.0.0 address to bypass network isolation of docker.
+	ip := flag.String("address", "0.0.0.0", "The IP address that this server will use.")
 	port := flag.String("port", "3000", "The port that this server will listen to.")
 
 	flag.Parse()
@@ -36,32 +28,5 @@ func main() {
 	}
 
 	log.Fatal(srv.ListenAndServe())
-
-	//// Create a channel to listen for an interrupt signal
-	//interrupt := make(chan os.Signal, 1)
-	//signal.Notify(interrupt, os.Interrupt)
-	//
-	//// Start the server in a goroutine
-	//go func() {
-	//	log.Printf("Server listening on %s\n", address)
-	//	if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-	//		log.Fatalf("Server error: %v\n", err)
-	//	}
-	//}()
-	//
-	//// Wait for an interrupt signal
-	//<-interrupt
-	//log.Println("Shutting down server...")
-	//
-	//// Create a context with a timeout for graceful shutdown
-	//ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	//defer cancel()
-	//
-	//// Shutdown the server gracefully
-	//if err := srv.Shutdown(ctx); err != nil {
-	//	log.Fatalf("Server shutdown error: %v\n", err)
-	//}
-	//
-	//log.Println("Server gracefully stopped")
 
 }

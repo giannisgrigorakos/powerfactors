@@ -14,4 +14,16 @@ fmt: ## Format the source code
 test-local: ## Run tests locally with race detector and test coverage
 	go test ./... -race -cover
 
-.PHONY: help lint fmt test-local
+docker-build: ## Build the docker image of the application
+	docker build -t powerfactors .
+
+docker-run-background: ## Run the application into a docker container on port 3000 while port mapping to local machine's port 3000
+	docker run -d -p 3000:3000 powerfactors
+
+docker-stop-containers: ## Stop all running containers
+	docker stop $$(docker ps -aq)
+
+run-local: ## Run the application locally with localhost address and port 3000
+	go run cmd/powerfactors/main.go -address=127.0.0.1 -port=3000
+
+.PHONY: help lint fmt test-local docker-build docker-run docker-stop run-local

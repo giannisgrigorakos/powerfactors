@@ -1,13 +1,20 @@
 FROM golang:1.20.1 as builder
 
-WORKDIR /go/powerfactors
+# Set the working directory inside the container
+WORKDIR /app
 
+# Copy the source code to the container
 COPY . ./
-ARG version=dev
-#RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags "-X main.version=$version" -o powerfactors ./cmd/powerfactors/
-RUN CGO_ENABLED=0 go build -o powerfactors ./cmd/powerfactors/
 
+# Build the Go application
+RUN go build -o powerfactors ./cmd/powerfactors/
 
-FROM scratch
-COPY --from=builder /go/powerfactors/powerfactors .
-CMD ["/powerfactors"]
+# Set the environment variables
+ENV ADDRESS=127.0.0.1
+ENV PORT=3000
+
+# Expose the port that the application listens on
+EXPOSE $PORT
+
+ENTRYPOINT ["/app/powerfactors"]
+CMD ["./powerfactors", "-address={$ADDRESS}", "-port={$PORT}"]
