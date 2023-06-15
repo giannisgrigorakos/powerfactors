@@ -3,7 +3,7 @@ This is the Powerfactors technical challenge.
 
 # Requirements  
 ![](https://upload.wikimedia.org/wikipedia/commons/2/2d/Go_gopher_favicon.svg) Golang version 1.20+ (Since they try to make every change backwards compatible I don't believe running with a previous version will cause a problem)
-![](https://avatars.githubusercontent.com/u/7739233?s=280&v=4) Docker 
+![](https://pics.freeicons.io/uploads/icons/png/15889022741579517836-48.png) Docker 
 
 # How to run the program
 You have to pass as arguments in the below command the desired address and port that this program will run.
