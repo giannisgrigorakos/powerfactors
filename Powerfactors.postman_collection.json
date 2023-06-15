@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "43e1af2b-f53a-4263-992e-924fe407ec28",
+		"name": "Powerfactors",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Successful request 1 hour",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"period\":\"1h\",\n    \"tz\": \"Europe/Athens\",\n    \"t1\":\"20210714T204603Z\",\n    \"t2\":\"20210715T123456Z\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ptlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ptlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Successful request 1 day",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"period\":\"1d\",\n    \"tz\": \"Europe/Athens\",\n    \"t1\":\"20211010T204603Z\",\n    \"t2\":\"20211115T123456Z\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ptlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ptlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Successful request 1 month",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"period\":\"1mo\",\n    \"tz\": \"Europe/Athens\",\n    \"t1\":\"20210214T204603Z\",\n    \"t2\":\"20211115T123456Z\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ptlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ptlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Successful request 1 year",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"period\":\"1y\",\n    \"tz\": \"Europe/Athens\",\n    \"t1\":\"20180214T204603Z\",\n    \"t2\":\"20211115T123456Z\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ptlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ptlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Successful request 1 year no result",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"period\":\"1y\",\n    \"tz\": \"Europe/Athens\",\n    \"t1\":\"20210214T204603Z\",\n    \"t2\":\"20210214T224603Z\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ptlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ptlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unsuccessful request wrong period",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"period\":\"1day\",\n    \"tz\": \"Europe/Athens\",\n    \"t1\":\"20210214T204603Z\",\n    \"t2\":\"20211115T123456Z\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ptlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ptlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unsuccessful request wrong timezone",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"period\":\"1d\",\n    \"tz\": \"Timezone\",\n    \"t1\":\"20210214T204603Z\",\n    \"t2\":\"20211115T123456Z\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ptlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ptlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unsuccessful request wrong first timestamp",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"period\":\"1d\",\n    \"tz\": \"Europe/Athens\",\n    \"t1\":\"20210214Tasddasd\",\n    \"t2\":\"20211115T123456Z\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ptlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ptlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unsuccessful request Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"period\":\"1d\",\n    \"tz\": \"Europe/Athens\",\n    \"t1\":\"20210214T204603Z\",\n    \"t2\":\"20211115qweqweee\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ptlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ptlist"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
