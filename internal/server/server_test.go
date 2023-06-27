@@ -8,15 +8,11 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/gorilla/mux"
-
 	"powerFactors/internal/server"
 )
 
 func TestFindMatchingTimestampsEmptyBodySearchRequest(t *testing.T) {
-	server := &server.Server{
-		Router: mux.NewRouter(),
-	}
+	server := server.NewServer()
 
 	responseRecorder := httptest.NewRecorder()
 	server.FindMatchingTimestamps(responseRecorder, httptest.NewRequest("GET", "/ptlist", nil))
