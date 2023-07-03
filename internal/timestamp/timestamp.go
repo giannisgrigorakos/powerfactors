@@ -64,7 +64,9 @@ func CalculateTimestamps(reqData RequestData) ([]string, error) {
 		reqData.FirstTimestamp = reqData.FirstTimestamp.Truncate(time.Hour)
 		addTime(reqData.Period, &reqData.FirstTimestamp)
 	case "1d":
-		reqData.FirstTimestamp = reqData.FirstTimestamp.Truncate(time.Hour).Add(time.Hour)
+		reqData.FirstTimestamp = reqData.FirstTimestamp.Add(time.Hour * 24)
+		// Set the time to the start of the next day
+		reqData.FirstTimestamp = time.Date(reqData.FirstTimestamp.Year(), reqData.FirstTimestamp.Month(), reqData.FirstTimestamp.Day(), 0, 0, 0, 0, location)
 	case "1mo":
 		year, month, _ := reqData.FirstTimestamp.AddDate(0, 1, 0).Date()
 		reqData.FirstTimestamp = time.Date(reqData.FirstTimestamp.Year(), reqData.FirstTimestamp.Month(), reqData.FirstTimestamp.Day(), reqData.FirstTimestamp.Hour(), reqData.FirstTimestamp.Minute(), reqData.FirstTimestamp.Second(), 0, location)
